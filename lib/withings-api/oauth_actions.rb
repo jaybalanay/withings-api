@@ -95,10 +95,12 @@ module Withings
           _consumer = create_consumer(*arguments.shift.to_a)
           _request_token = OAuth::RequestToken.new(_consumer, *request_token.to_a)
           _user_id = arguments.shift
-        elsif request_token.class == Array
-          _consumer = create_consumer(*arguments.shift.to_a)
-          _request_token = OAuth::RequestToken.new(_consumer, request_token)
-          _user_id = arguments.shift
+          puts "=========== Request token : #{_request_token}"
+          puts "=========== Consumer token : #{_consumer}"
+        # elsif request_token.class == Array
+        #   _consumer = create_consumer(*arguments.shift.to_a)
+        #   _request_token = OAuth::RequestToken.new(_consumer, request_token)
+        #   _user_id = arguments.shift
         else
           raise ArgumentError
         end
